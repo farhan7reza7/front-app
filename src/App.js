@@ -7,9 +7,8 @@ const MyComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/users");
-        setData({ message: response.data });
-        console.log("status: " + response.status, " data: " + response.data);
+        const response = await axios.get("/api/users");
+        setData({ message: "data loaded: " + response.data.title });
       } catch (error) {
         setData({ message: "error message: " + error.message });
       }
@@ -17,7 +16,7 @@ const MyComponent = () => {
     fetchData();
   }, []);
 
-  return <div>{data && <p>{data}</p>}</div>;
+  return <div>{data && <p>{data.message}</p>}</div>;
 };
 
 export default MyComponent;

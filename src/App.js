@@ -9,6 +9,7 @@ const MyComponent = () => {
       try {
         const response = await axios.get("/users");
         setData({ message: "data loaded: " + response.data.title });
+        console.log("status: " + response.status, " data: " + response.data);
       } catch (error) {
         setData({ message: "error message: " + error.message });
       }

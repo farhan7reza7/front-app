@@ -7,7 +7,9 @@ const MyComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/api/users");
+        const response = await axios.get(
+          "http://sample.eba-dqpmvh4c.ap-south-1.elasticbeanstalk.com/users"
+        );
         setData({ message: "data loaded: " + response.data.title });
       } catch (error) {
         setData({ message: "error message: " + error.message });
